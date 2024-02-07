@@ -1,16 +1,48 @@
-<h1> {{ $heading; }} </h1>
+@extends('layout')
 
-@unless (count($listings) == 0)
-    @foreach($listings as $listing) 
-        <h2> 
-            <a href="/listings/{{$listing['id']}}"> {{ $listing['title'] }} </a>
-        
-        </h2>
-        <p> {{ $listing['description'] }} <p>
-
-    @endforeach
+@section('content')
     
-    @else 
-    <p>No Listings</p>
+    <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
+    
+        @unless (count($listings) == 0)
+            @foreach($listings as $listing) 
+                <div class="bg-gray-50 border border-gray-200 rounded p-6">
+                    <div class="flex">
+                        <img class="hidden w-48 mr-6 md:block" src="{{asset('/images/laravel logo orange.png')}}" alt=""/>
+                        <div>
+                            <h3 class="text-2xl">
+                                <a href="">{{$listing->title}}</a>
+                            </h3>
+                            <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
+                        {{-- </div> --}}
+                        {{-- <div> --}}
+                            <ul class="flex">
+                                <li class="flex items-centre justify-centre bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                    <a href="#">Laravel</a>      
+                                </li>
+                                <li class="flex items-centre justify-centre bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                    <a href="#">API</a>      
+                                </li>
+                                <li class="flex items-centre justify-centre bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                    <a href="#">Backend</a>      
+                                </li>
+                                <li class="flex items-centre justify-centre bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                    <a href="#">Vue</a>      
+                                </li>
+                            </ul>
+                            <div class="text-lg mt-4">
+                                <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
+                            </div>
+                        </div>
+                    </div>
 
-@endunless
+                </div>
+
+            @endforeach
+            
+            @else 
+            <p>No Listings</p>
+
+        @endunless
+    </div>
+@endsection
