@@ -10,21 +10,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            themes: {
+        
+            theme: {
                 extend: {
                     colors: {
                         laravel: '#ef3b2d',
-                    },
-                },
-            },  
+                    }
+                }
+            }  
         }
     </script>
     <title>Larragis | Find Laravel Jobs & Projects</title>
 </head>
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
-        <a href="index.html">
-            <img  class="w-24" src="{{asset('images/android-chrome-512x512.png')}}" alt="" class="logo">
+        <a href="/">
+            <img  class="w-20" src="{{asset('images/android-chrome-512x512.png')}}" alt="" class="logo">
         </a>
         <ul class="flex space-x-6 mr-6 text-lg">
             <li>
@@ -46,8 +47,8 @@
     @yield('content')
     </main>
     
-    <footer class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold text-white bg-laravel h-24 mt-24 opacity-90 md:justify-centre">
-        <p class="ml-2 ">Copyright &copy; 2024, All rights reserved</p>
+    <footer class="fixed bottom-0 left-0 w-full flex items-center justify-center font-bold text-white bg-laravel h-24 mt-24 opacity-90 md:justify-centre">
+        <p class="ml-2">Copyright &copy; 2024, All rights reserved</p>
         <a href="create.html" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Post Job</a>
     </footer>
 </body>
